@@ -41,7 +41,7 @@ const Formulario = ({ crearCita }) => {
 
         //asignar id// podemos agregar un valor a cita como uuid concatenandolo
         cita.id = uuidv4();
-        
+
         //pasamos cita a app
         crearCita(cita)
 
@@ -56,7 +56,7 @@ const Formulario = ({ crearCita }) => {
         })
     }
 
-//
+    //
 
     return (
         <Fragment>
