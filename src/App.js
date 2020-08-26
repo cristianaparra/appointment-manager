@@ -1,11 +1,11 @@
 import React, { Fragment, useState } from 'react';
 import Formulario from './components/formulario';
-
+import Cita from './components/Cita'
 
 function App() {
 
 
-  const [citas, guardarCitas]= useState([]);
+  const [citas, guardarCitas] = useState([]);
 
 
   //funcion que agrege nuevas citas
@@ -21,11 +21,16 @@ function App() {
       <div className='container'>
         <div className='row'>
           <div className='one-half column'>
-            <Formulario  crearCita={crearCita}/>
+            <Formulario crearCita={crearCita} />
           </div>
           <div className='one-half column'>
-        
-                  </div>
+            {citas.map(cita => (
+              <Cita
+                key={cita.id}
+                cita={cita}
+              />
+            ))}
+          </div>
 
         </div>
 

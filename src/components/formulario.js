@@ -44,6 +44,16 @@ const Formulario = ({ crearCita }) => {
         
         //pasamos cita a app
         crearCita(cita)
+
+
+        //actualizar cita
+        actualizarCita({
+            mascota: '',
+            propietario: '',
+            fecha: '',
+            hora: '',
+            sintomas: ''
+        })
     }
 
     return (
