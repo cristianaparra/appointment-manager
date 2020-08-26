@@ -2,17 +2,26 @@ import React, { Fragment, useState } from 'react';
 
 const Formulario = () => {
 
-    const[cita, actualizarCita]= useState({
-        mascota:'',
-        propietario:'',
-        fecha:'',
-        hora:'',
-        sintomas:''
+    const [cita, actualizarCita] = useState({
+        mascota: '',
+        propietario: '',
+        fecha: '',
+        hora: '',
+        sintomas: ''
     });
 
-const handleChange = () =>{
-    console.log('escribiendo')
-}
+    const handleChange = e => {
+        actualizarCita({
+            ...cita,
+            [e.target.name]: e.target.value
+        })
+    }
+
+
+const {mascota, propietario, fecha, hora, sintomas} = cita;
+
+
+
 
     return (
         <Fragment>
@@ -25,6 +34,7 @@ const handleChange = () =>{
                     className='u-full-width'
                     placeholder='Nombre mascota'
                     onChange={handleChange}
+                    value={mascota}
                 />
 
                 <label>Nombres dueño</label>
@@ -34,6 +44,7 @@ const handleChange = () =>{
                     className='u-full-width'
                     placeholder='Nombre dueño de la mascota'
                     onChange={handleChange}
+                    value={propietario}
                 />
 
                 <label>Fecha</label>
@@ -42,6 +53,7 @@ const handleChange = () =>{
                     name='fecha'
                     className='u-full-width'
                     onChange={handleChange}
+                    value={fecha}
                 />
 
                 <label>Hora</label>
@@ -50,6 +62,7 @@ const handleChange = () =>{
                     name='hora'
                     className='u-full-width'
                     onChange={handleChange}
+                    value={hora}
                 />
 
                 <label>Sintomas</label>
@@ -57,6 +70,7 @@ const handleChange = () =>{
                     className='u-full-width'
                     name='sintomas'
                     onChange={handleChange}
+                    value={sintomas}
                 ></textarea>
                 <button
                     type='submit'
