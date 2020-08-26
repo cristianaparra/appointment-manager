@@ -21,6 +21,8 @@ function App() {
     guardarCitas(nuevasCitas)
   }
 
+  const tituloCitas = citas.length === 0 ? 'Sin Citas' : 'Estas son tus Citas';
+
   return (
     <Fragment>
 
@@ -31,6 +33,7 @@ function App() {
             <Formulario crearCita={crearCita} />
           </div>
           <div className='one-half column'>
+            <h1>{tituloCitas}</h1>
             {citas.map(cita => (
               <Cita
                 key={cita.id}
