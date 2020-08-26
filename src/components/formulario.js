@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-
+import {v4 as uuidv4} from 'uuid';
 const Formulario = () => {
 
     const [cita, actualizarCita] = useState({
@@ -9,9 +9,18 @@ const Formulario = () => {
         hora: '',
         sintomas: ''
     });
+    //desestructurando cita
+    const { mascota, propietario, fecha, hora, sintomas } = cita;
 
+
+    //manejo de error
     const [error, actualizarError] = useState(false)
 
+
+
+
+
+    //tomando evento de form
     const handleChange = e => {
         actualizarCita({
             ...cita,
@@ -19,18 +28,22 @@ const Formulario = () => {
         })
     }
 
-
-    const { mascota, propietario, fecha, hora, sintomas } = cita;
+    //validando datos de submit
 
     const submitCita = e => {
         e.preventDefault();
-
+        //validar
         if (mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === '') {
             actualizarError(true);
             return;
         }
+        //eliminar validacion
+        actualizarError(false);
 
 
+        //asignar id// podemos agregar un valor a cita como uuid concatenandolo
+        cita.id = uuidv4();
+        console.log(cita)
     }
 
     return (
