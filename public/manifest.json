@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Admin citas",
+  "name": "Administrador de citas",
   "icons": [
     {
       "src": "favicon.ico",
